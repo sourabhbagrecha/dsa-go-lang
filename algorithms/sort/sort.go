@@ -92,3 +92,86 @@ func Merge(nums []int) []int {
 	right := Merge(nums[mid:])
 	return mergeSortedArrays(left, right)
 }
+
+// pivot helper
+func pivot(nums []int, start int, end int) int {
+	swapIndex := start
+	pivotElement := nums[swapIndex]
+	for i := start + 1; i <= end; i++ {
+		if nums[i] < pivotElement {
+			swapIndex++
+			swap(nums, i, swapIndex)
+		}
+	}
+	swap(nums, swapIndex, start)
+	return swapIndex
+}
+
+// Quick Sort
+func Quick(nums []int, options ...int) []int {
+	left := 0
+	right := len(nums) - 1
+	if len(options) > 0 {
+		left = options[0]
+		right = options[1]
+	}
+	if left < right {
+		fmt.Println(nums, left, right)
+		pivotIndex := pivot(nums, left, right)
+		fmt.Println(nums, left, right, pivotIndex)
+		Quick(nums, left, pivotIndex-1)
+		Quick(nums, pivotIndex+1, right)
+	}
+	return nums
+}
+
+func getDigit(num int, positionFromRight int) int {
+	if num < 0 {
+		num = -1 * num
+	}
+	divisor := int(math.Pow10(positionFromRight))
+	remainder := int(num / divisor)
+	digit := remainder % divisor
+	return digit
+}
+
+func numOfDigits(num int) int {
+	if num == 0 {
+		return 1
+	}
+	if num < 0 {
+		num = num * -1
+	}
+	digits := int(math.Floor(math.Log10(float64(num)))) + 1
+	return digits
+}
+
+func mostDigits(nums []int) int {
+	maxDigits := 0
+	for i := 0; i < len(nums); i++ {
+		maxDigits = int(math.Max(float64(numOfDigits(nums[i])), float64(maxDigits)))
+	}
+	return maxDigits
+}
+
+// Radix sort
+func Radix(nums []int) []int {
+	maxDigits := mostDigits(nums)
+	for k := 0; k <= maxDigits; k++ {
+		var digitBuckets [][]int
+		for digitBucket := 0; digitBucket < 10; digitBucket++ {
+			var emptyBucket []int
+			digitBuckets = append(digitBuckets, emptyBucket)
+		}
+		for i := 0; i < len(nums); i++ {
+			digit := getDigit(nums[i], k)
+			digitBuckets[digit] = append(digitBuckets[digit], nums[i])
+		}
+		var newNums []int
+		for digitBucket := 0; digitBucket < len(digitBuckets); digitBucket++ {
+			newNums = append(newNums, digitBuckets[digitBucket]...)
+		}
+		nums = newNums
+	}
+	return nums
+}

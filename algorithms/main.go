@@ -128,7 +128,7 @@ func capitalizeAll(demoStrings []string) []string {
 }
 
 func main() {
-	arr := []int{10, 2, 34, 4, -21, 11, 88, 60}
+	arr := []int{44, 26, 79, 31, 12, 85, 0, 1, 2, 223}
 	// newArr := []int{8, 1, 2, 3, 4, 5, 6, 7, 9}
 	// demoStrings := []string{"hello", "taco", "bell", "sheldon cooper", "hello"}
 	// names := []string{"Sourabh", "Anshul", "Max", "Colt", "Brad", "Hughie", "Starlight", "William"}
@@ -154,5 +154,7 @@ func main() {
 	// fmt.Println(sort.Bubble(arr))
 	// fmt.Println(sort.Selection(arr))
 	// fmt.Println(sort.Insertion(arr))
-	fmt.Println(sort.Merge(arr))
+	// fmt.Println(sort.Merge(arr))
+	// fmt.Println(sort.Quick(arr))
+	fmt.Println(sort.Radix(arr))
 }

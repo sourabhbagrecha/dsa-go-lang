@@ -1,7 +1,6 @@
 package search
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -20,7 +19,6 @@ func BinarySearch(sortedNames []int, query int) int {
 	min := 0
 	max := len(sortedNames) - 1
 	for min < max {
-		fmt.Println(min, max)
 		cursor := math.Floor((float64(min) + float64(max)) / 2)
 		currentVal := sortedNames[int(cursor)]
 		if currentVal == query {
