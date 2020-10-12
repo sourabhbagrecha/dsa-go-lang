@@ -7,13 +7,14 @@ type node struct {
 	next *node
 }
 
-type linkedList struct {
+//LinkedList data structure
+type LinkedList struct {
 	head   *node
 	tail   *node
 	length int
 }
 
-func (l *linkedList) unshift(data int) *node {
+func (l *LinkedList) unshift(data int) *node {
 	newNode := &node{data: data}
 	if l.head == nil {
 		l.head = newNode
@@ -26,7 +27,7 @@ func (l *linkedList) unshift(data int) *node {
 	return newNode
 }
 
-func (l *linkedList) printList() {
+func (l *LinkedList) printList() {
 	myListLength := l.length
 	toPrint := l.head
 	fmt.Println("LinkedList:>")
@@ -37,7 +38,7 @@ func (l *linkedList) printList() {
 	}
 }
 
-func (l *linkedList) deleteNode(data int) {
+func (l *LinkedList) deleteNode(data int) {
 	myListLength := l.length
 	nodeSelected := l.head
 	if nodeSelected.data == data {
@@ -56,7 +57,7 @@ func (l *linkedList) deleteNode(data int) {
 	return
 }
 
-func (l *linkedList) push(data int) *node {
+func (l *LinkedList) push(data int) *node {
 	newNode := &node{data: data}
 	if l.length == 0 {
 		l.head = newNode
@@ -69,7 +70,7 @@ func (l *linkedList) push(data int) *node {
 	return newNode
 }
 
-func (l *linkedList) pop() {
+func (l *LinkedList) pop() {
 	if l.head == nil {
 		return
 	}
@@ -90,7 +91,7 @@ func (l *linkedList) pop() {
 	return
 }
 
-func (l *linkedList) shift() {
+func (l *LinkedList) shift() {
 	if l.head == nil {
 		return
 	}
@@ -102,7 +103,7 @@ func (l *linkedList) shift() {
 	return
 }
 
-func (l *linkedList) get(position int) *node {
+func (l *LinkedList) get(position int) *node {
 	myListLength := l.length
 	if position > myListLength || myListLength == 0 {
 		return nil
@@ -118,7 +119,7 @@ func (l *linkedList) get(position int) *node {
 	return currentNode
 }
 
-func (l *linkedList) set(position int, data int) int {
+func (l *LinkedList) set(position int, data int) int {
 	myListLength := l.length
 	if position > myListLength || myListLength == 0 {
 		return -1
@@ -135,7 +136,7 @@ func (l *linkedList) set(position int, data int) int {
 	return -1
 }
 
-func (l *linkedList) insert(position int, data int) *node {
+func (l *LinkedList) insert(position int, data int) *node {
 	myListLength := l.length
 	newNode := &node{data: data}
 	if position > myListLength || myListLength == 0 {
@@ -153,7 +154,7 @@ func (l *linkedList) insert(position int, data int) *node {
 	}
 }
 
-func (l *linkedList) remove(position int) bool {
+func (l *LinkedList) remove(position int) bool {
 	myListLength := l.length
 	if position > myListLength || myListLength == 0 {
 		return false
@@ -172,7 +173,7 @@ func (l *linkedList) remove(position int) bool {
 	}
 }
 
-func (l *linkedList) reverse() {
+func (l *LinkedList) reverse() {
 	if l.length <= 1 {
 		return
 	}
@@ -193,7 +194,7 @@ func (l *linkedList) reverse() {
 
 //CallLinkedList creates one
 func CallLinkedList() {
-	mylist := linkedList{}
+	mylist := LinkedList{}
 	// mylist.push(493)
 	mylist.push(520)
 	mylist.push(617)
