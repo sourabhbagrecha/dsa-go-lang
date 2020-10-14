@@ -1,5 +1,9 @@
 package main
 
+import (
+	"github.com/sourabhbagrecha/first_project/data_structures/binaryheap"
+)
+
 // "github.com/sourabhbagrecha/first_project/data_structures/binarysearchtree"
 
 func main() {
@@ -53,4 +57,6 @@ func main() {
 	// fmt.Println("Pre Order Traversal", newTree.DFSTraversal("pre-order"))
 	// fmt.Println("In Order Traversal", newTree.DFSTraversal("in-order"))
 	// fmt.Println("Post Order Traversal", newTree.DFSTraversal("post-order"))
+
+	binaryheap.CallBinaryHeap()
 }
