@@ -50,9 +50,9 @@ func (maxHeap *MaxBinaryHeap) extractMax() int {
 func (maxHeap *MaxBinaryHeap) sinkDown() {
 	lastElementIdx := len(maxHeap.values) - 1
 	parentIdx := 0
-	for parentIdx < lastElementIdx {
+	for parentIdx <= lastElementIdx {
 		leftChildIdx := (parentIdx * 2) + 1
-		rightChildIdx := (parentIdx * 2) + 2
+		rightChildIdx := leftChildIdx + 1
 		newParentIdx := parentIdx
 		maxVal := maxHeap.values[newParentIdx]
 		if rightChildIdx < lastElementIdx {
@@ -82,15 +82,22 @@ func CallBinaryHeap() {
 	var maxHeap MaxBinaryHeap
 
 	fmt.Println(maxHeap)
-	maxHeap.insert(25)
+	maxHeap.insert(15)
 	maxHeap.insert(20)
 	maxHeap.insert(7000)
 	maxHeap.insert(40)
 	maxHeap.insert(50)
 	maxHeap.insert(100)
+	maxHeap.insert(600)
 	maxHeap.insert(700)
 	maxHeap.insert(400)
 	maxHeap.insert(900)
+	fmt.Println(maxHeap)
+	fmt.Println(maxHeap.extractMax())
+	fmt.Println(maxHeap)
+	fmt.Println(maxHeap.extractMax())
+	fmt.Println(maxHeap)
+	fmt.Println(maxHeap.extractMax())
 	fmt.Println(maxHeap)
 	fmt.Println(maxHeap.extractMax())
 	fmt.Println(maxHeap)

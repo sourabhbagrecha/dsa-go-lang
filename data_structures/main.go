@@ -1,7 +1,9 @@
 package main
 
 import (
-	"github.com/sourabhbagrecha/first_project/data_structures/binaryheap"
+	"fmt"
+
+	"github.com/sourabhbagrecha/first_project/data_structures/hashtable"
 )
 
 // "github.com/sourabhbagrecha/first_project/data_structures/binarysearchtree"
@@ -58,5 +60,13 @@ func main() {
 	// fmt.Println("In Order Traversal", newTree.DFSTraversal("in-order"))
 	// fmt.Println("Post Order Traversal", newTree.DFSTraversal("post-order"))
 
-	binaryheap.CallBinaryHeap()
+	// binaryheap.CallBinaryHeap()
+
+	hashTable := hashtable.HashTable{}
+	hashTable.Set("Sourabh", "Bagrecha")
+	hashTable.Set("Jeff", "Bezos")
+	hashTable.Set("John", "Parker")
+	fmt.Println(hashTable.Get("Akansha"))
+	fmt.Println("Results: ", hashTable.GetAllKeys())
+	fmt.Println("Results: ", hashTable.GetAllValues())
 }
