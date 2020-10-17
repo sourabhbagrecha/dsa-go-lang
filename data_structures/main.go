@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sourabhbagrecha/first_project/data_structures/hashtable"
+	"github.com/sourabhbagrecha/first_project/data_structures/graph"
 )
 
 // "github.com/sourabhbagrecha/first_project/data_structures/binarysearchtree"
@@ -62,11 +62,24 @@ func main() {
 
 	// binaryheap.CallBinaryHeap()
 
-	hashTable := hashtable.HashTable{}
-	hashTable.Set("Sourabh", "Bagrecha")
-	hashTable.Set("Jeff", "Bezos")
-	hashTable.Set("John", "Parker")
-	fmt.Println(hashTable.Get("Akansha"))
-	fmt.Println("Results: ", hashTable.GetAllKeys())
-	fmt.Println("Results: ", hashTable.GetAllValues())
+	// hashTable := hashtable.HashTable{}
+	// hashTable.Set("Sourabh", "Bagrecha")
+	// hashTable.Set("Jeff", "Bezos")
+	// hashTable.Set("John", "Parker")
+	// fmt.Println(hashTable.Get("Akansha"))
+	// fmt.Println("Results: ", hashTable.GetAllKeys())
+	// fmt.Println("Results: ", hashTable.GetAllValues())
+
+	graph := graph.Graph{}
+	graph.AddVertex("A")
+	graph.AddVertex("B")
+	graph.AddVertex("C")
+	graph.AddVertex("D")
+	graph.AddVertex("E")
+	graph.AddVertexWithEdges("F", []string{"E", "A"})
+	graph.AddEdge("A", "C")
+	fmt.Println(graph)
+	graph.RemoveVertex("F")
+	// graph.RemoveEdge("A", "C")
+	fmt.Println(graph)
 }
