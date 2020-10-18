@@ -55,13 +55,13 @@ func (maxHeap *MaxBinaryHeap) sinkDown() {
 		rightChildIdx := leftChildIdx + 1
 		newParentIdx := parentIdx
 		maxVal := maxHeap.values[newParentIdx]
-		if rightChildIdx < lastElementIdx {
+		if rightChildIdx <= lastElementIdx {
 			if maxHeap.values[rightChildIdx] > maxVal {
 				maxVal = maxHeap.values[rightChildIdx]
 				newParentIdx = rightChildIdx
 			}
 		}
-		if leftChildIdx < lastElementIdx {
+		if leftChildIdx <= lastElementIdx {
 			if maxHeap.values[leftChildIdx] > maxVal {
 				maxVal = maxHeap.values[leftChildIdx]
 				newParentIdx = leftChildIdx
