@@ -1,10 +1,10 @@
 package graph
 
-import "fmt"
-
 //Graph Data Structure
 type Graph struct {
 	adjacenceyList map[string][]string
+	visited        map[string]bool
+	results        []string
 }
 
 //AddVertexWithEdges add a new node into the graph along with edges
@@ -84,26 +84,34 @@ func (g *Graph) RemoveVertex(vertex string) *Graph {
 	return g
 }
 
-func (g *Graph) dfsHelper(vertex string, results []string, visited map[string]bool) ([]string, map[string]bool) {
+func (g *Graph) dfsHelper(vertex string) {
 	currentVertex := g.adjacenceyList[vertex]
-	results = append(results, vertex)
-	visited[vertex] = true
+	g.results = append(g.results, vertex)
+	if g.visited == nil {
+		g.visited = make(map[string]bool)
+	}
+	g.visited[vertex] = true
 	if len(currentVertex) == 0 {
-		return results, visited
+		return
 	}
 	for i := 0; i < len(currentVertex); i++ {
-		if visited[currentVertex[i]] != true {
-			results, visited = g.dfsHelper(currentVertex[i], results, visited)
+		if g.visited[currentVertex[i]] != true {
+			g.dfsHelper(currentVertex[i])
 		}
 	}
-	return results, visited
+	return
 }
 
 //DFS depth first traversal of the complete graph
-func (g *Graph) DFS(vertex string) *Graph {
-	results := []string{}
-	visited := map[string]bool{}
-	results, visited = g.dfsHelper(vertex, results, visited)
-	fmt.Println(results, visited)
-	return g
+func (g *Graph) DFS(vertex string) []string {
+	g.dfsHelper(vertex)
+
+	//Store the results in temp variable
+	results := g.results
+
+	//To reset the visited and results properties of the graph
+	g.results = []string{}
+	g.visited = make(map[string]bool)
+
+	return results
 }
