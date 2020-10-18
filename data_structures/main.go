@@ -1,12 +1,8 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/sourabhbagrecha/first_project/data_structures/priorityqueue"
+	wg "github.com/sourabhbagrecha/first_project/data_structures/weightedgraph"
 )
-
-// "github.com/sourabhbagrecha/first_project/data_structures/binarysearchtree"
 
 func main() {
 	// linkedlist.CallLinkedList()
@@ -102,17 +98,35 @@ func main() {
 	// fmt.Println(g.DFSIterative("A"))
 	// fmt.Println(g.BFS("A"))
 
-	p := priorityqueue.PriorityQueue{}
-	fmt.Println(p.Enqueue("Nani", 5))
-	fmt.Println(p.Enqueue("Hinal", 3))
-	fmt.Println(p.Enqueue("Heena", 2))
-	fmt.Println(p.Enqueue("Sourabh", 1))
-	fmt.Println(p.Enqueue("Sanjay", 4))
-	fmt.Println(p.Enqueue("Nana", 6))
-	fmt.Println(p.Dequeue(), p)
-	fmt.Println(p.Dequeue(), p)
-	fmt.Println(p.Dequeue(), p)
-	fmt.Println(p.Dequeue(), p)
-	fmt.Println(p.Dequeue(), p)
+	// p := priorityqueue.PriorityQueue{}
+	// fmt.Println(p.Enqueue("Max", 5))
+	// fmt.Println(p.Enqueue("Ryan", 3))
+	// fmt.Println(p.Enqueue("Jack", 2))
+	// fmt.Println(p.Enqueue("Sourabh", 1))
+	// fmt.Println(p.Enqueue("Mike", 4))
+	// fmt.Println(p.Enqueue("Nadal", 6))
 	// fmt.Println(p.Dequeue(), p)
+	// fmt.Println(p.Dequeue(), p)
+	// fmt.Println(p.Dequeue(), p)
+	// fmt.Println(p.Dequeue(), p)
+	// fmt.Println(p.Dequeue(), p)
+	// fmt.Println(p.Dequeue(), p)
+
+	w := wg.WeightedGraph{}
+	w.AddVertex("A")
+	w.AddVertex("B")
+	w.AddVertex("C")
+	w.AddVertex("D")
+	w.AddVertex("E")
+	w.AddVertex("F")
+	w.AddEdge("A", "B", 4)
+	w.AddEdge("A", "C", 2)
+	w.AddEdge("B", "E", 3)
+	w.AddEdge("C", "D", 2)
+	w.AddEdge("C", "F", 4)
+	w.AddEdge("D", "E", 3)
+	w.AddEdge("D", "F", 1)
+	w.AddEdge("E", "F", 1)
+	// fmt.Println(w)
+	w.ApplyDijkstras("A", "E")
 }
