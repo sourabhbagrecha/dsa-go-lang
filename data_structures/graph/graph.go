@@ -1,5 +1,7 @@
 package graph
 
+import "fmt"
+
 //Graph Data Structure
 type Graph struct {
 	adjacenceyList map[string][]string
@@ -69,7 +71,7 @@ func (g *Graph) RemoveVertex(vertex string) *Graph {
 		g.RemoveEdge(vertex, g.adjacenceyList[vertex][0])
 	}
 
-	// Different Solution
+	// Different Approach
 	// for i := 0; i < len(g.adjacenceyList[vertex]); i++ {
 	// 	vertexWithConnection := g.adjacenceyList[g.adjacenceyList[vertex][i]]
 	// 	for j := 0; j < len(vertexWithConnection); j++ {
@@ -79,5 +81,29 @@ func (g *Graph) RemoveVertex(vertex string) *Graph {
 	// 	}
 	// }
 	delete(g.adjacenceyList, vertex)
+	return g
+}
+
+func (g *Graph) dfsHelper(vertex string, results []string, visited map[string]bool) ([]string, map[string]bool) {
+	currentVertex := g.adjacenceyList[vertex]
+	results = append(results, vertex)
+	visited[vertex] = true
+	if len(currentVertex) == 0 {
+		return results, visited
+	}
+	for i := 0; i < len(currentVertex); i++ {
+		if visited[currentVertex[i]] != true {
+			results, visited = g.dfsHelper(currentVertex[i], results, visited)
+		}
+	}
+	return results, visited
+}
+
+//DFS depth first traversal of the complete graph
+func (g *Graph) DFS(vertex string) *Graph {
+	results := []string{}
+	visited := map[string]bool{}
+	results, visited = g.dfsHelper(vertex, results, visited)
+	fmt.Println(results, visited)
 	return g
 }
