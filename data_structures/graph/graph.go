@@ -95,7 +95,7 @@ func (g *Graph) dfsHelper(vertex string) {
 		return
 	}
 	for i := 0; i < len(currentVertex); i++ {
-		if g.visited[currentVertex[i]] != true {
+		if !g.visited[currentVertex[i]] {
 			g.dfsHelper(currentVertex[i])
 		}
 	}
@@ -114,4 +114,25 @@ func (g *Graph) DFS(vertex string) []string {
 	g.visited = make(map[string]bool)
 
 	return results
+}
+
+//DFSIterative traverse in a iteravtive rather than the recursive way
+func (g *Graph) DFSIterative(vertex string) []string {
+	stack := []string{vertex}
+	g.visited = make(map[string]bool)
+
+	for len(stack) > 0 {
+		currentVertex := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if !g.visited[currentVertex] {
+			g.visited[currentVertex] = true
+			g.results = append(g.results, currentVertex)
+
+			//Looping in reverse fashion so that the immediate(array order) next neighbor would stay on top after pushing in the array
+			for i := len(g.adjacenceyList[currentVertex]) - 1; i >= 0; i-- {
+				stack = append(stack, g.adjacenceyList[currentVertex][i])
+			}
+		}
+	}
+	return g.results
 }
