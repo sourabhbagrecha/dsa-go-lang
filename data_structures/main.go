@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sourabhbagrecha/first_project/data_structures/graph"
+	"github.com/sourabhbagrecha/first_project/data_structures/priorityqueue"
 )
 
 // "github.com/sourabhbagrecha/first_project/data_structures/binarysearchtree"
@@ -83,22 +83,36 @@ func main() {
 	// // graph.RemoveEdge("A", "C")
 	// fmt.Println(graph)
 
-	g := graph.Graph{}
-	g.AddVertex("A")
-	g.AddVertex("B")
-	g.AddVertex("C")
-	g.AddVertex("D")
-	g.AddVertex("E")
-	g.AddVertex("F")
+	// g := graph.Graph{}
+	// g.AddVertex("A")
+	// g.AddVertex("B")
+	// g.AddVertex("C")
+	// g.AddVertex("D")
+	// g.AddVertex("E")
+	// g.AddVertex("F")
 
-	g.AddEdge("A", "B")
-	g.AddEdge("A", "C")
-	g.AddEdge("B", "D")
-	g.AddEdge("C", "E")
-	g.AddEdge("D", "E")
-	g.AddEdge("D", "F")
-	g.AddEdge("E", "F")
+	// g.AddEdge("A", "B")
+	// g.AddEdge("A", "C")
+	// g.AddEdge("B", "D")
+	// g.AddEdge("C", "E")
+	// g.AddEdge("D", "E")
+	// g.AddEdge("D", "F")
+	// g.AddEdge("E", "F")
 	// fmt.Println(g.DFS("A"))
 	// fmt.Println(g.DFSIterative("A"))
-	fmt.Println(g.BFS("A"))
+	// fmt.Println(g.BFS("A"))
+
+	p := priorityqueue.PriorityQueue{}
+	fmt.Println(p.Enqueue("Nani", 5))
+	fmt.Println(p.Enqueue("Hinal", 3))
+	fmt.Println(p.Enqueue("Heena", 2))
+	fmt.Println(p.Enqueue("Sourabh", 1))
+	fmt.Println(p.Enqueue("Sanjay", 4))
+	fmt.Println(p.Enqueue("Nana", 6))
+	fmt.Println(p.Dequeue(), p)
+	fmt.Println(p.Dequeue(), p)
+	fmt.Println(p.Dequeue(), p)
+	fmt.Println(p.Dequeue(), p)
+	fmt.Println(p.Dequeue(), p)
+	// fmt.Println(p.Dequeue(), p)
 }
