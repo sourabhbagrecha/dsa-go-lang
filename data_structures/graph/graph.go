@@ -84,13 +84,13 @@ func (g *Graph) RemoveVertex(vertex string) *Graph {
 	return g
 }
 
-func (g *Graph) dfsHelper(vertex string) {
-	currentVertex := g.adjacenceyList[vertex]
-	g.results = append(g.results, vertex)
+func (g *Graph) dfsHelper(start string) {
+	currentVertex := g.adjacenceyList[start]
+	g.results = append(g.results, start)
 	if g.visited == nil {
 		g.visited = make(map[string]bool)
 	}
-	g.visited[vertex] = true
+	g.visited[start] = true
 	if len(currentVertex) == 0 {
 		return
 	}
@@ -103,8 +103,8 @@ func (g *Graph) dfsHelper(vertex string) {
 }
 
 //DFS depth first traversal of the complete graph
-func (g *Graph) DFS(vertex string) []string {
-	g.dfsHelper(vertex)
+func (g *Graph) DFS(start string) []string {
+	g.dfsHelper(start)
 
 	//Store the results in temp variable
 	results := g.results
@@ -117,8 +117,8 @@ func (g *Graph) DFS(vertex string) []string {
 }
 
 //DFSIterative traverse in a iteravtive rather than the recursive way
-func (g *Graph) DFSIterative(vertex string) []string {
-	stack := []string{vertex}
+func (g *Graph) DFSIterative(start string) []string {
+	stack := []string{start}
 	g.visited = make(map[string]bool)
 
 	for len(stack) > 0 {
@@ -142,5 +142,25 @@ func (g *Graph) DFSIterative(vertex string) []string {
 	g.results = []string{}
 	g.visited = make(map[string]bool)
 
+	return results
+}
+
+//BFS traverse the graph in a breadth first search fashion
+func (g *Graph) BFS(start string) []string {
+	g.visited = make(map[string]bool)
+	queue := []string{start}
+	var results []string
+	for len(queue) > 0 {
+		if !g.visited[queue[0]] {
+			g.results = append(g.results, queue[0])
+			g.visited[queue[0]] = true
+			currentVertex := g.adjacenceyList[queue[0]]
+			queue = append(queue, currentVertex...)
+		}
+		queue = queue[1:]
+		results = g.results
+	}
+	g.results = []string{}
+	g.visited = make(map[string]bool)
 	return results
 }

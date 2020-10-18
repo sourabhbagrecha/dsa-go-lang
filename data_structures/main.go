@@ -99,5 +99,6 @@ func main() {
 	g.AddEdge("D", "F")
 	g.AddEdge("E", "F")
 	// fmt.Println(g.DFS("A"))
-	fmt.Println(g.DFSIterative("A"))
+	// fmt.Println(g.DFSIterative("A"))
+	fmt.Println(g.BFS("A"))
 }
