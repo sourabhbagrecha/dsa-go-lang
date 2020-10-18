@@ -134,5 +134,13 @@ func (g *Graph) DFSIterative(vertex string) []string {
 			}
 		}
 	}
-	return g.results
+
+	//Store the results in temp variable
+	results := g.results
+
+	//To reset the visited and results properties of the graph
+	g.results = []string{}
+	g.visited = make(map[string]bool)
+
+	return results
 }
