@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"strings"
-
-	"github.com/sourabhbagrecha/first_project/algorithms/sort"
 )
 
 func factorial(num int) int {
@@ -69,6 +67,25 @@ func fibonacci(x int) int {
 	return fibonacci(x-1) + fibonacci(x-2)
 }
 
+//Some helpers for optimized solution fibonacci using dynamic programming
+var fibonacciStore map[int]int
+
+func init() {
+	fibonacciStore = make(map[int]int)
+}
+
+func fibonacciOptimized(x int) int {
+	if x <= 2 {
+		return 1
+	}
+	if fibonacciStore[x] > 0 {
+		return fibonacciStore[x]
+	}
+	result := fibonacciOptimized(x-1) + fibonacciOptimized(x-2)
+	fibonacciStore[x] = result
+	return result
+}
+
 func reverse(str string) string {
 	runes := []rune(str)
 	if len(runes) <= 1 {
@@ -128,7 +145,7 @@ func capitalizeAll(demoStrings []string) []string {
 }
 
 func main() {
-	arr := []int{44, 26, 79, 31, 12, 85, 0, 1, 2, 223}
+	// arr := []int{44, 26, 79, 31, 12, 85, 0, 1, 2, 223}
 	// newArr := []int{8, 1, 2, 3, 4, 5, 6, 7, 9}
 	// demoStrings := []string{"hello", "taco", "bell", "sheldon cooper", "hello"}
 	// names := []string{"Sourabh", "Anshul", "Max", "Colt", "Brad", "Hughie", "Starlight", "William"}
@@ -142,7 +159,8 @@ func main() {
 	// fmt.Println(power(2, 0))
 	// fmt.Println(productOfArray(arr))
 	// fmt.Println(sumOfAllTill0(11))
-	// fmt.Println(fibonacci(4))
+	fmt.Println(fibonacciOptimized(44))
+	// fmt.Println(fibonacci(44))
 	// fmt.Println(reverse("Hello"))
 	// fmt.Println(checkPalindrome("totatatot"))
 	// fmt.Println(someRecursive(arr, isOdd)) recursive check using callbacks
@@ -156,5 +174,5 @@ func main() {
 	// fmt.Println(sort.Insertion(arr))
 	// fmt.Println(sort.Merge(arr))
 	// fmt.Println(sort.Quick(arr))
-	fmt.Println(sort.Radix(arr))
+	// fmt.Println(sort.Radix(arr))
 }
