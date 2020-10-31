@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	arr := []int{1, 2, 3, 4, 5, 6, 7}
+	arr := []int{5, 6, 7, 1, 2, 3, 4}
 	// brr := []int{-15, 1, 2, 7, 123, 125}
 	// mat := [][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}
 	// s := "sourabhbaruos"
@@ -25,5 +25,6 @@ func main() {
 	// fmt.Println(array.UnionAndIntersectionSorted(arr, brr))
 	// fmt.Println(matrix.SearchElement(mat, 9))
 	// fmt.Println(str.FindDuplicates("sourabhbagrecha"))
-	fmt.Println(search.ValueEqualToIndexValue(arr))
+	// fmt.Println(search.ValueEqualToIndexValue(arr))
+	fmt.Println(search.FindInSortedAndRotatedArray(arr, 4))
 }
