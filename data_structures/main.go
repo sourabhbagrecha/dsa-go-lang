@@ -1,7 +1,9 @@
 package main
 
 import (
-	wg "github.com/sourabhbagrecha/first_project/data_structures/weightedgraph"
+	"fmt"
+
+	"github.com/sourabhbagrecha/first_project/data_structures/binarysearchtree"
 )
 
 func main() {
@@ -35,25 +37,20 @@ func main() {
 
 	//Binary Search Tree Data Structure
 
-	// newTree := binarysearchtree.BinarySearchTree{}
-	// newTree.Insert(40)
-	// newTree.Insert(400)
-	// newTree.Insert(49)
-	// newTree.Insert(11)
-	// newTree.Insert(10)
-	// newTree.Insert(13)
-	// newTree.Insert(19)
-	// newTree.Insert(428)
-	// newTree.Print()
-	// dataToFind := 4000
-	// foundString := "NOT"
-	// if newTree.Find(dataToFind) {
-	// 	foundString = ""
-	// }
-	// fmt.Println(dataToFind, "is", foundString, "available")
-	// fmt.Println(newTree.BFSTraversal())
+	newTree := binarysearchtree.BinarySearchTree{}
+	newTree.Insert(40)
+	newTree.Insert(400)
+	newTree.Insert(49)
+	newTree.Insert(11)
+	newTree.Insert(10)
+	newTree.Insert(13)
+	newTree.Insert(19)
+	newTree.Insert(428)
+	fmt.Println(newTree.BFSTraversal())
 	// fmt.Println("Pre Order Traversal", newTree.DFSTraversal("pre-order"))
-	// fmt.Println("In Order Traversal", newTree.DFSTraversal("in-order"))
+	fmt.Println("In Order Traversal", newTree.DFSTraversal("in-order"))
+	newTree.DeleteNode(400)
+	fmt.Println("In Order Traversal", newTree.DFSTraversal("in-order"))
 	// fmt.Println("Post Order Traversal", newTree.DFSTraversal("post-order"))
 
 	// binaryheap.CallBinaryHeap()
@@ -112,21 +109,21 @@ func main() {
 	// fmt.Println(p.Dequeue(), p)
 	// fmt.Println(p.Dequeue(), p)
 
-	w := wg.WeightedGraph{}
-	w.AddVertex("A")
-	w.AddVertex("B")
-	w.AddVertex("C")
-	w.AddVertex("D")
-	w.AddVertex("E")
-	w.AddVertex("F")
-	w.AddEdge("A", "B", 4)
-	w.AddEdge("A", "C", 2)
-	w.AddEdge("B", "E", 3)
-	w.AddEdge("C", "D", 2)
-	w.AddEdge("C", "F", 4)
-	w.AddEdge("D", "E", 3)
-	w.AddEdge("D", "F", 1)
-	w.AddEdge("E", "F", 1)
+	// w := wg.WeightedGraph{}
+	// w.AddVertex("A")
+	// w.AddVertex("B")
+	// w.AddVertex("C")
+	// w.AddVertex("D")
+	// w.AddVertex("E")
+	// w.AddVertex("F")
+	// w.AddEdge("A", "B", 4)
+	// w.AddEdge("A", "C", 2)
+	// w.AddEdge("B", "E", 3)
+	// w.AddEdge("C", "D", 2)
+	// w.AddEdge("C", "F", 4)
+	// w.AddEdge("D", "E", 3)
+	// w.AddEdge("D", "F", 1)
+	// w.AddEdge("E", "F", 1)
 	// fmt.Println(w)
-	w.ApplyDijkstras("A", "E")
+	// w.ApplyDijkstras("A", "E")
 }

@@ -173,3 +173,34 @@ func (b *BinarySearchTree) Find(data int) bool {
 	}
 	return false
 }
+
+func deleteNodeHelper(root *leaf, data int) *leaf {
+	if root.data > data {
+		root.left = deleteNodeHelper(root.left, data)
+	} else if root.data < data {
+		root.right = deleteNodeHelper(root.right, data)
+	} else {
+		if root.left == nil {
+			return root.right
+		}
+		if root.right == nil {
+			return root.left
+		}
+		rightSmallest := root.right
+		for rightSmallest.left != nil {
+			rightSmallest = rightSmallest.left
+		}
+		rightSmallest.left = root.left
+		return root.right
+	}
+	return root
+}
+
+// DeleteNode deletes a node from the BST and rearranges if needed
+func (b *BinarySearchTree) DeleteNode(data int) {
+	if b == nil {
+		return
+	}
+	root := b.root
+	deleteNodeHelper(root, data)
+}
