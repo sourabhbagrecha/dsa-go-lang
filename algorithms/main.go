@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"strings"
+
+	"github.com/sourabhbagrecha/first_project/algorithms/search"
 )
 
 func factorial(num int) int {
@@ -150,7 +152,7 @@ func main() {
 	// demoStrings := []string{"hello", "taco", "bell", "sheldon cooper", "hello"}
 	// names := []string{"Sourabh", "Anshul", "Max", "Colt", "Brad", "Hughie", "Starlight", "William"}
 	// sortedNames := []string{"anshul", "brad", "colt", "hughie", "max", "sourabh", "starlight", "william"}
-	// sortedNames := []int{1, 4, 9, 15, 19, 23, 28}
+	sortedArr := []int{1, 4, 9, 15, 19, 23, 28}
 	// longString := "hello sourabh how are you, how is your dad?"
 	// shortString := "how"
 	// fmt.Println(factorial(5))
@@ -159,7 +161,7 @@ func main() {
 	// fmt.Println(power(2, 0))
 	// fmt.Println(productOfArray(arr))
 	// fmt.Println(sumOfAllTill0(11))
-	fmt.Println(fibonacciOptimized(44))
+	// fmt.Println(fibonacciOptimized(44))
 	// fmt.Println(fibonacci(44))
 	// fmt.Println(reverse("Hello"))
 	// fmt.Println(checkPalindrome("totatatot"))
@@ -167,7 +169,7 @@ func main() {
 	// fmt.Println(capitalizeFirst(demoStrings))
 	// fmt.Println(capitalizeAll(demoStrings))
 	// fmt.Println(search.LinearSearch(names, "Colt"))
-	// fmt.Println(search.BinarySearch(sortedNames, 199))
+	fmt.Println(search.BinarySearch(sortedArr, 20))
 	// fmt.Println(search.NaiveStringSearch(longString, shortString))
 	// fmt.Println(sort.Bubble(arr))
 	// fmt.Println(sort.Selection(arr))

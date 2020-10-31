@@ -1,8 +1,6 @@
 package search
 
-import (
-	"math"
-)
+import "fmt"
 
 //LinearSearch finds the position of an string in the list
 func LinearSearch(names []string, query string) int {
@@ -15,23 +13,21 @@ func LinearSearch(names []string, query string) int {
 }
 
 //BinarySearch finds the position of match optimally in the list
-func BinarySearch(sortedNames []int, query int) int {
+func BinarySearch(sortedArray []int, query int) bool {
 	min := 0
-	max := len(sortedNames) - 1
-	for min < max {
-		cursor := math.Floor((float64(min) + float64(max)) / 2)
-		currentVal := sortedNames[int(cursor)]
-		if currentVal == query {
-			return int(cursor)
-		} else if (min + 1) == max {
-			min = max
-		} else if currentVal > query {
-			max = int(cursor)
+	max := len(sortedArray) - 1
+	for min <= max {
+		mid := (min + max) / 2
+		fmt.Println(min, max, mid)
+		if sortedArray[mid] == query {
+			return true
+		} else if sortedArray[mid] < query {
+			min = mid + 1
 		} else {
-			min = int(cursor)
+			max = mid - 1
 		}
 	}
-	return -1
+	return false
 }
 
 // NaiveStringSearch gives the count of matches found of given string in a long string
