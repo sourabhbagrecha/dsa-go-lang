@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sourabhbagrecha/first_project/packages/strutil"
+	"github.com/sourabhbagrecha/dsa-go-lang/packages/strutil"
 )
 
 func main() {

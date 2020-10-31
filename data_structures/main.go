@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sourabhbagrecha/first_project/data_structures/binarysearchtree"
+	"github.com/sourabhbagrecha/dsa-go-lang/data_structures/binarysearchtree"
 )
 
 func main() {

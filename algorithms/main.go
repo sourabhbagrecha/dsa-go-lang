@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/sourabhbagrecha/first_project/algorithms/search"
+	"github.com/sourabhbagrecha/dsa-go-lang/algorithms/search"
 )
 
 func factorial(num int) int {

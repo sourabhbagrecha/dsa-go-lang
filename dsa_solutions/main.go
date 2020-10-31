@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sourabhbagrecha/first_project/dsa_solutions/search"
+	"github.com/sourabhbagrecha/dsa-go-lang/dsa_solutions/search"
 )
 
 func main() {
