@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/sourabhbagrecha/first_project/dsa_solutions/array"
+	"github.com/sourabhbagrecha/first_project/dsa_solutions/search"
 )
 
 func main() {
-	arr := []int{-126, -5, -3, 1, 5, 5, 5, 7, 123, 125}
-	brr := []int{-15, 1, 2, 7, 123, 125}
+	arr := []int{1, 2, 3, 4, 5, 6, 7}
+	// brr := []int{-15, 1, 2, 7, 123, 125}
 	// mat := [][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}
 	// s := "sourabhbaruos"
 	// fmt.Println(array.Reverse(arr))
@@ -22,5 +22,8 @@ func main() {
 	// fmt.Println(str.IsPalindrome(s))
 	// fmt.Println(search.FindFirstAndLastOccurrence(arr, 11))
 	// fmt.Println(array.MoveNegativesToLeft(arr))
-	fmt.Println(array.UnionAndIntersectionSorted(arr, brr))
+	// fmt.Println(array.UnionAndIntersectionSorted(arr, brr))
+	// fmt.Println(matrix.SearchElement(mat, 9))
+	// fmt.Println(str.FindDuplicates("sourabhbagrecha"))
+	fmt.Println(search.ValueEqualToIndexValue(arr))
 }
