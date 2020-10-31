@@ -4,38 +4,39 @@ import (
 	"fmt"
 )
 
-type leaf struct {
-	data  int
-	left  *leaf
-	right *leaf
+// Leaf Data structure
+type Leaf struct {
+	Data  int
+	Left  *Leaf
+	Right *Leaf
 }
 
 //BinarySearchTree Data Structure
 type BinarySearchTree struct {
-	root *leaf
+	Root *Leaf
 }
 
-//Insert a new leaf to the BST
-func (b *BinarySearchTree) Insert(data int) *BinarySearchTree {
-	newLeaf := &leaf{data: data}
-	if b.root == nil {
-		b.root = newLeaf
+//Insert a new Leaf to the BST
+func (b *BinarySearchTree) Insert(Data int) *BinarySearchTree {
+	newLeaf := &Leaf{Data: Data}
+	if b.Root == nil {
+		b.Root = newLeaf
 		return b
 	}
-	currentLeaf := b.root
+	currentLeaf := b.Root
 	for true {
-		if data < currentLeaf.data {
-			if currentLeaf.left == nil {
-				currentLeaf.left = newLeaf
+		if Data < currentLeaf.Data {
+			if currentLeaf.Left == nil {
+				currentLeaf.Left = newLeaf
 				return b
 			}
-			currentLeaf = currentLeaf.left
-		} else if data > currentLeaf.data {
-			if currentLeaf.right == nil {
-				currentLeaf.right = newLeaf
+			currentLeaf = currentLeaf.Left
+		} else if Data > currentLeaf.Data {
+			if currentLeaf.Right == nil {
+				currentLeaf.Right = newLeaf
 				return b
 			}
-			currentLeaf = currentLeaf.right
+			currentLeaf = currentLeaf.Right
 		} else {
 			return b
 		}
@@ -47,66 +48,66 @@ func (b *BinarySearchTree) Insert(data int) *BinarySearchTree {
 func (b *BinarySearchTree) BFSTraversal() []int {
 	visited := []int{}
 
-	if b.root == nil {
+	if b.Root == nil {
 		return visited
 	}
 
-	consideredQueue := []leaf{}
-	node := *b.root
+	consideredQueue := []Leaf{}
+	node := *b.Root
 	consideredQueue = append(consideredQueue, node)
 	for len(consideredQueue) > 0 {
 		node = consideredQueue[0]
 		consideredQueue = consideredQueue[1:]
-		visited = append(visited, node.data)
-		if node.left != nil {
-			consideredQueue = append(consideredQueue, *node.left)
+		visited = append(visited, node.Data)
+		if node.Left != nil {
+			consideredQueue = append(consideredQueue, *node.Left)
 		}
-		if node.right != nil {
-			consideredQueue = append(consideredQueue, *node.right)
+		if node.Right != nil {
+			consideredQueue = append(consideredQueue, *node.Right)
 		}
 	}
 	return visited
 }
 
-func preOrderHelper(node *leaf, preOrder []int) []int {
-	//visit root
-	preOrder = append(preOrder, node.data)
-	//traverse left
-	if node.left != nil {
-		preOrder = preOrderHelper(node.left, preOrder)
+func preOrderHelper(node *Leaf, preOrder []int) []int {
+	//visit Root
+	preOrder = append(preOrder, node.Data)
+	//traverse Left
+	if node.Left != nil {
+		preOrder = preOrderHelper(node.Left, preOrder)
 	}
-	//traverse right
-	if node.right != nil {
-		preOrder = preOrderHelper(node.right, preOrder)
+	//traverse Right
+	if node.Right != nil {
+		preOrder = preOrderHelper(node.Right, preOrder)
 	}
 	return preOrder
 }
 
-func inOrderHelper(node *leaf, inOrder []int) []int {
-	//traverse left
-	if node.left != nil {
-		inOrder = inOrderHelper(node.left, inOrder)
+func inOrderHelper(node *Leaf, inOrder []int) []int {
+	//traverse Left
+	if node.Left != nil {
+		inOrder = inOrderHelper(node.Left, inOrder)
 	}
-	//visit root
-	inOrder = append(inOrder, node.data)
-	//traverse right
-	if node.right != nil {
-		inOrder = inOrderHelper(node.right, inOrder)
+	//visit Root
+	inOrder = append(inOrder, node.Data)
+	//traverse Right
+	if node.Right != nil {
+		inOrder = inOrderHelper(node.Right, inOrder)
 	}
 	return inOrder
 }
 
-func postOrderHelper(node *leaf, postOrder []int) []int {
-	//traverse left
-	if node.left != nil {
-		postOrder = postOrderHelper(node.left, postOrder)
+func postOrderHelper(node *Leaf, postOrder []int) []int {
+	//traverse Left
+	if node.Left != nil {
+		postOrder = postOrderHelper(node.Left, postOrder)
 	}
-	//traverse right
-	if node.right != nil {
-		postOrder = postOrderHelper(node.right, postOrder)
+	//traverse Right
+	if node.Right != nil {
+		postOrder = postOrderHelper(node.Right, postOrder)
 	}
-	//visit root
-	postOrder = append(postOrder, node.data)
+	//visit Root
+	postOrder = append(postOrder, node.Data)
 	return postOrder
 }
 
@@ -115,16 +116,16 @@ func (b *BinarySearchTree) DFSTraversal(orderType string) []int {
 	var order []int
 	switch orderType {
 	case "pre-order":
-		order = preOrderHelper(b.root, order)
+		order = preOrderHelper(b.Root, order)
 		break
 	case "in-order":
-		order = inOrderHelper(b.root, order)
+		order = inOrderHelper(b.Root, order)
 		break
 	case "post-order":
-		order = postOrderHelper(b.root, order)
+		order = postOrderHelper(b.Root, order)
 		break
 	default:
-		order = preOrderHelper(b.root, order)
+		order = preOrderHelper(b.Root, order)
 		break
 	}
 	return order
@@ -132,75 +133,75 @@ func (b *BinarySearchTree) DFSTraversal(orderType string) []int {
 
 //Print the BST
 func (b *BinarySearchTree) Print() {
-	currentLeaf := b.root
+	currentLeaf := b.Root
 	printBSTFromANode(currentLeaf)
 }
 
-func printBSTFromANode(l *leaf) *leaf {
-	var left, right *leaf
-	if l.left != nil {
-		left = printBSTFromANode(l.left)
+func printBSTFromANode(l *Leaf) *Leaf {
+	var Left, Right *Leaf
+	if l.Left != nil {
+		Left = printBSTFromANode(l.Left)
 	}
-	if l.right != nil {
-		right = printBSTFromANode(l.right)
+	if l.Right != nil {
+		Right = printBSTFromANode(l.Right)
 	}
-	if l.left != nil || l.right != nil {
-		fmt.Println("Traversing", left, right, l)
+	if l.Left != nil || l.Right != nil {
+		fmt.Println("Traversing", Left, Right, l)
 	}
 	return l
 }
 
-//Find a leaf with the given data in BST
-func (b *BinarySearchTree) Find(data int) bool {
-	if b.root == nil {
+//Find a Leaf with the given Data in BST
+func (b *BinarySearchTree) Find(Data int) bool {
+	if b.Root == nil {
 		return false
 	}
-	currentLeaf := b.root
+	currentLeaf := b.Root
 	for true {
-		if data == currentLeaf.data {
+		if Data == currentLeaf.Data {
 			return true
-		} else if data < currentLeaf.data {
-			if currentLeaf.left == nil {
+		} else if Data < currentLeaf.Data {
+			if currentLeaf.Left == nil {
 				return false
 			}
-			currentLeaf = currentLeaf.left
+			currentLeaf = currentLeaf.Left
 		} else {
-			if currentLeaf.right == nil {
+			if currentLeaf.Right == nil {
 				return false
 			}
-			currentLeaf = currentLeaf.right
+			currentLeaf = currentLeaf.Right
 		}
 	}
 	return false
 }
 
-func deleteNodeHelper(root *leaf, data int) *leaf {
-	if root.data > data {
-		root.left = deleteNodeHelper(root.left, data)
-	} else if root.data < data {
-		root.right = deleteNodeHelper(root.right, data)
+func deleteNodeHelper(Root *Leaf, Data int) *Leaf {
+	if Root.Data > Data {
+		Root.Left = deleteNodeHelper(Root.Left, Data)
+	} else if Root.Data < Data {
+		Root.Right = deleteNodeHelper(Root.Right, Data)
 	} else {
-		if root.left == nil {
-			return root.right
+		if Root.Left == nil {
+			return Root.Right
 		}
-		if root.right == nil {
-			return root.left
+		if Root.Right == nil {
+			return Root.Left
 		}
-		rightSmallest := root.right
-		for rightSmallest.left != nil {
-			rightSmallest = rightSmallest.left
+		RightSmallest := Root.Right
+		for RightSmallest.Left != nil {
+			RightSmallest = RightSmallest.Left
 		}
-		rightSmallest.left = root.left
-		return root.right
+		RightSmallest.Left = Root.Left
+		return Root.Right
 	}
-	return root
+	return Root
 }
 
 // DeleteNode deletes a node from the BST and rearranges if needed
-func (b *BinarySearchTree) DeleteNode(data int) {
+func (b *BinarySearchTree) DeleteNode(Data int) {
 	if b == nil {
 		return
 	}
-	root := b.root
-	deleteNodeHelper(root, data)
+	Root := b.Root
+	deleteNodeHelper(Root, Data)
 }
