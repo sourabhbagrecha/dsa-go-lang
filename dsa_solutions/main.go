@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
-	// bst "github.com/sourabhbagrecha/dsa-go-lang/data_structures/binarysearchtree"
-	"github.com/sourabhbagrecha/dsa-go-lang/dsa_solutions/array"
+
+	"github.com/sourabhbagrecha/dsa-go-lang/dsa_solutions/str"
 )
+
+// bst "github.com/sourabhbagrecha/dsa-go-lang/data_structures/binarysearchtree"
 
 // var newTree bst.BinarySearchTree
 
@@ -23,7 +25,7 @@ import (
 // }
 
 func main() {
-	arr := []int{5, 6, 7, 1, 2, 3, 4}
+	// arr := []int{5, 6, 7, 1, 2, 3, 4}
 	// brr := []int{-15, 1, 2, 7, 123, 125}
 	// mat := [][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}
 	// s := "sourabhbaruos"
@@ -44,5 +46,6 @@ func main() {
 	// fmt.Println(search.ValueEqualToIndexValue(arr))
 	// fmt.Println(search.FindInSortedAndRotatedArray(arr, 4))
 	// fmt.Println(binarysearchtree.FindMinMax(&newTree))
-	fmt.Println(array.CyclicallyRotate(arr))
+	// fmt.Println(array.CyclicallyRotate(arr))
+	fmt.Println(str.IsStringRotationOfAnother("sourabh", "rabhso"))
 }
