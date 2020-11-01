@@ -49,5 +49,6 @@ func main() {
 	// fmt.Println(array.CyclicallyRotate(arr))
 	// fmt.Println(str.IsStringRotationOfAnother("sourabh", "rabhso"))
 	// fmt.Println(search.CountSquares(3))
-	fmt.Println(array.MaxContiguousSum([]int{-2, -3, 4, -1, -2, 1, 5}))
+	// fmt.Println(array.MaxContiguousSum([]int{-2, -3, 4, -1, -2, 1, 5}))
+	fmt.Println(array.MinimizeTheHeights([]int{3, 9, 12, 16, 20}, 3))
 }
