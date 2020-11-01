@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sourabhbagrecha/dsa-go-lang/dsa_solutions/str"
+	"github.com/sourabhbagrecha/dsa-go-lang/dsa_solutions/array"
 )
 
 // bst "github.com/sourabhbagrecha/dsa-go-lang/data_structures/binarysearchtree"
@@ -47,5 +47,7 @@ func main() {
 	// fmt.Println(search.FindInSortedAndRotatedArray(arr, 4))
 	// fmt.Println(binarysearchtree.FindMinMax(&newTree))
 	// fmt.Println(array.CyclicallyRotate(arr))
-	fmt.Println(str.IsStringRotationOfAnother("sourabh", "rabhso"))
+	// fmt.Println(str.IsStringRotationOfAnother("sourabh", "rabhso"))
+	// fmt.Println(search.CountSquares(3))
+	fmt.Println(array.MaxContiguousSum([]int{-2, -3, 4, -1, -2, 1, 5}))
 }
