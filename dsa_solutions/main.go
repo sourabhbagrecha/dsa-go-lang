@@ -25,7 +25,7 @@ import (
 // }
 
 func main() {
-	// arr := []int{5, 6, 7, 1, 2, 3, 4}
+	// arr := []int{1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9}
 	// brr := []int{-15, 1, 2, 7, 123, 125}
 	// mat := [][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}
 	// s := "sourabhbaruos"
@@ -50,5 +50,9 @@ func main() {
 	// fmt.Println(str.IsStringRotationOfAnother("sourabh", "rabhso"))
 	// fmt.Println(search.CountSquares(3))
 	// fmt.Println(array.MaxContiguousSum([]int{-2, -3, 4, -1, -2, 1, 5}))
-	fmt.Println(array.MinimizeTheHeights([]int{3, 9, 12, 16, 20}, 3))
+	// fmt.Println(array.MinimizeTheHeights([]int{3, 9, 12, 16, 20}, 3))
+	// fmt.Println(array.MinimumJumpsToTheEnd(arr))
+	fmt.Println(array.TwoNumberSum([]int{3, 5, -4, 8, 11, 1, -1, 6}, 4))
+	fmt.Println(array.TwoNumberSumUsingSort([]int{3, 5, -4, 8, 11, 1, -1, 6}, 4))
+	fmt.Println(array.TwoNumberSumIndexes([]int{3, 5, -4, 8, 11, 1, -1, 6}, 4))
 }
